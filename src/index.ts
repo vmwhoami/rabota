@@ -1,11 +1,23 @@
-// const puppeteer = require('puppeteer');
+import { startBrowser } from './startCloseBrowser';
+import login from './login';
+import * as dotenv from 'dotenv';
 
-import hello from "./somefile";
-console.log(hello());
+dotenv.config();
+const gotTo = async (url: string) => {
+  const email = process.env.EMAIL;
+  const password = process.env.PASSWORD;
+
+  const { page } = await startBrowser();
+  page.setViewport({ width: 1000, height: 768 });
+  page.goto(url);
+  login(page, email, password);
+  // searchFor(page, "recruiter it");
+  // selectCountry(page, "Portland").then(() => getAllBtns(page))
 
 
-// (async () => {
-//   const browser = await puppeteer.launch({ headless: false });
-//   const page = await browser.newPage();
-//   await page.goto('https://www.rabota.md/ru/');
-// })();
+}
+
+
+(async () => {
+  await gotTo("https://www.rabota.md/ro/");
+})();
