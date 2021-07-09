@@ -46,7 +46,7 @@ var puppeteer = require('puppeteer');
                 return [4 /*yield*/, browser.newPage()];
             case 2:
                 page = _a.sent();
-                return [4 /*yield*/, page.goto('https://www.rabota.md/ro/')];
+                return [4 /*yield*/, page.goto('https://www.rabota.md/ru/')];
             case 3:
                 _a.sent();
                 return [2 /*return*/];
