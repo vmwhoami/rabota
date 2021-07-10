@@ -12,7 +12,7 @@ const gotTo = async (url) => {
     page.setViewport({ width: 1000, height: 800 });
     await page.goto(url);
     await login_1.default(page, email, password);
-    await page.goto(url + 'jobs-moldova-react');
+    await page.goto(url + 'jobs-moldova-ruby');
     await page.setViewport({ width: 500, height: 768 });
     await getButtons_1.default(page);
 };
