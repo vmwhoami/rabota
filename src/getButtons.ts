@@ -39,17 +39,11 @@ const SendCV = async (page: any) => {
   await page.click('#agreement-id-styler');
   await page.waitForSelector('.set_cookie_agreement');
   await page.click('.set_cookie_agreement');
-  await delay(2000);
+  await delay(1000);
   await page.evaluate(() => {
     let close: HTMLElement = document.querySelector('#cv_sent .m_window .mw_close')!
     return close.click()
   })
-
-  // await page.evaluate(async () => {
-  //   let close: any = await document.querySelector('#cv_sent .m_window .mw_close')!;
-  //   close.click();
-  // });
-
 }
 
 export default getButtonsClick;
