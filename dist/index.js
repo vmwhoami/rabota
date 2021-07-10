@@ -9,7 +9,7 @@ const gotTo = async (url) => {
     const email = process.env.EMAIL;
     const password = process.env.PASSWORD;
     const { page } = await startCloseBrowser_1.startBrowser();
-    page.setViewport({ width: 1000, height: 768 });
+    page.setViewport({ width: 1000, height: 800 });
     await page.goto(url);
     await login_1.default(page, email, password);
     await page.goto(url + 'jobs-moldova-react');
