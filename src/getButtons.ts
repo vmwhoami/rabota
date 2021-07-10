@@ -7,15 +7,15 @@ const getButtonsClick = async (page: any) => {
 
   try {
 
-    // let elementsHendles = await page.evaluateHandle(() => document.querySelector('.cat_red_btn')!);
-    // let elements = await elementsHendles.getProperties();
-    // let elements_arr = Array.from(elements.values());
-    // console.log(elements_arr);
-
-    await page.evaluate(async () => {
-      let element: any = await document.querySelector('.cat_red_btn')!;
-      element.click()
-    });
+    let elementsHendles = await page.evaluateHandle(() => document.querySelectorAll('.cat_red_btn')!);
+    let elements = await elementsHendles.getProperties();
+    let elements_arr = Array.from(elements.values());
+    let el: any = elements_arr.pop();
+    await el.click();
+    // await page.evaluate(async () => {
+    //   let element: any = await document.querySelector('.cat_red_btn')!;
+    //   element.click()
+    // });
 
     await sendCV(page)
 

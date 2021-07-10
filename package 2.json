@@ -1,0 +1,25 @@
+{
+  "name": "rabota",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --mode development --env development"
+  },
+  "author": "Vitalie Melnic",
+  "license": "ISC",
+  "dependencies": {
+    "@types/puppeteer": "^5.4.4",
+    "dotenv": "^10.0.0",
+    "puppeteer": "^10.1.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  }
+}

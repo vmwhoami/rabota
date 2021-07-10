@@ -4,15 +4,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sendCV_1 = require("./sendCV");
 const getButtonsClick = async (page) => {
     try {
-        2;
-        // let elementsHendles = await page.evaluateHandle(() => document.querySelector('.cat_red_btn')!);
-        // let elements = await elementsHendles.getProperties();
-        // let elements_arr = Array.from(elements.values());
-        // console.log(elements_arr);
-        await page.evaluate(async () => {
-            let element = await document.querySelector('.cat_red_btn');
-            element.click();
-        });
+        let elementsHendles = await page.evaluateHandle(() => document.querySelectorAll('.cat_red_btn'));
+        let elements = await elementsHendles.getProperties();
+        let elements_arr = Array.from(elements.values());
+        let el = elements_arr.pop();
+        await el.click();
+        // await page.evaluate(async () => {
+        //   let element: any = await document.querySelector('.cat_red_btn')!;
+        //   element.click()
+        // });
         await sendCV_1.default(page);
     }
     catch (error) {

@@ -11,7 +11,6 @@ const gotTo = async (url) => {
     const { page } = await startCloseBrowser_1.startBrowser();
     page.setViewport({ width: 1000, height: 800 });
     await page.goto(url);
-    await page.addStyleTag({ content: "{scroll-behavior: auto !important;}" });
     await login_1.default(page, email, password);
     await page.goto(url + 'jobs-moldova-ruby');
     await page.setViewport({ width: 500, height: 768 });

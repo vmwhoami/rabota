@@ -4,11 +4,8 @@ const fileExitst = fs.existsSync(`${pathFile}/VITALIEMELNIC.pdf`);
 import delay from "./delay";
 
 const SendCV = async (page: any) => {
-  let input = await page.waitForSelector('#full_name');
-  if (!input) {
-    await page.waitForSelector('form .tabs span:not(.active)');
-    await page.click('form .tabs span:not(.active)');
-  }
+  let spans = await page.$$('form .tabs span');
+  await spans[0].click()
   await page.waitForSelector('#full_name');
   await page.type("#full_name", "Vitalie Melnic");
   const elementHandle = await page.$("input[type=file]");
