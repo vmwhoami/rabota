@@ -1,7 +1,3 @@
-const delay = (time: number) => {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, time)
-  });
-}
+const delay = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
 
 export default delay;
