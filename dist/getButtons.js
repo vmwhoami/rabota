@@ -14,7 +14,6 @@ const getButtonsClick = async (page) => {
             if (element)
                 children.push(element);
         }
-        console.log(children);
         await loopFunc(children, page);
     }
     catch (error) {

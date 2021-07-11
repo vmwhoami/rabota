@@ -13,7 +13,7 @@ const gotTo = async (url: string) => {
   await page.goto(url);
   await login(page, email, password);
   await page.goto(url + 'jobs-moldova-javascript');
-  await page.setViewport({ width: 500, height: 768 });
+  await page.setViewport({ width: 500, height: 1600 });
   await getButtonsClick(page)
 
 }

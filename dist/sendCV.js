@@ -5,9 +5,10 @@ const fs = require("fs");
 const pathFile = __dirname.split('\\').slice(0, 4).join('/');
 const fileExitst = fs.existsSync(`${pathFile}/VITALIEMELNIC.pdf`);
 const SendCV = async (page) => {
+    await page.waitForTimeout(500);
     let spans = await page.$$('form .tabs span');
     await spans[0].click();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(500);
     await page.waitForSelector('#full_name');
     await page.type("#full_name", "Vitalie Melnic");
     const elementHandle = await page.$("input[type=file]");

@@ -18,7 +18,6 @@ const getButtonsClick = async (page: any) => {
       if (element)
         children.push(element);
     }
-    console.log(children);
 
     await loopFunc(children, page)
 
