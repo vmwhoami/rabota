@@ -9,15 +9,10 @@ const getButtonsClick = async (page: any) => {
 
     let elementsHendles = await page.evaluateHandle(() => document.querySelectorAll('.cat_red_btn')!);
     let elements = await elementsHendles.getProperties();
-    let elements_arr = Array.from(elements.values());
-    let el: any = elements_arr.pop();
-    await el.click();
-    // await page.evaluate(async () => {
-    //   let element: any = await document.querySelector('.cat_red_btn')!;
-    //   element.click()
-    // });
+    let elements_arr = await Array.from(elements.values());
+    console.log(elements_arr);
+    await loopFunc(elements_arr, page)
 
-    await sendCV(page)
 
 
   } catch (error) {
@@ -27,3 +22,11 @@ const getButtonsClick = async (page: any) => {
 }
 
 export default getButtonsClick;
+
+const loopFunc = async (elements_arr: any, page: any) => {
+  while (elements_arr.length > 0) {
+    let shifted = elements_arr.shift()
+    await shifted.click();
+    await sendCV(page);
+  }
+}

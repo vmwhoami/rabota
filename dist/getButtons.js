@@ -6,17 +6,19 @@ const getButtonsClick = async (page) => {
     try {
         let elementsHendles = await page.evaluateHandle(() => document.querySelectorAll('.cat_red_btn'));
         let elements = await elementsHendles.getProperties();
-        let elements_arr = Array.from(elements.values());
-        let el = elements_arr.pop();
-        await el.click();
-        // await page.evaluate(async () => {
-        //   let element: any = await document.querySelector('.cat_red_btn')!;
-        //   element.click()
-        // });
-        await sendCV_1.default(page);
+        let elements_arr = await Array.from(elements.values());
+        console.log(elements_arr);
+        await loopFunc(elements_arr, page);
     }
     catch (error) {
         console.log(error);
     }
 };
 exports.default = getButtonsClick;
+const loopFunc = async (elements_arr, page) => {
+    while (elements_arr.length > 0) {
+        let shifted = elements_arr.shift();
+        await shifted.click();
+        await sendCV_1.default(page);
+    }
+};

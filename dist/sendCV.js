@@ -5,6 +5,7 @@ const pathFile = __dirname.split('\\').slice(0, 4).join('/');
 const fileExitst = fs.existsSync(`${pathFile}/VITALIEMELNIC.pdf`);
 const delay_1 = require("./delay");
 const SendCV = async (page) => {
+    delay_1.default(2000);
     let spans = await page.$$('form .tabs span');
     await spans[0].click();
     await page.waitForSelector('#full_name');

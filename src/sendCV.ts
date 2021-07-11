@@ -4,6 +4,7 @@ const fileExitst = fs.existsSync(`${pathFile}/VITALIEMELNIC.pdf`);
 import delay from "./delay";
 
 const SendCV = async (page: any) => {
+  delay(2000)
   let spans = await page.$$('form .tabs span');
   await spans[0].click()
   await page.waitForSelector('#full_name');
@@ -20,6 +21,7 @@ const SendCV = async (page: any) => {
     let close: HTMLElement = document.querySelector('#cv_sent .m_window .mw_close')!
     return close.click()
   })
+
 }
 
 export default SendCV;
