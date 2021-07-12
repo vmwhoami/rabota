@@ -5,7 +5,7 @@ import login from './login';
 import applyToJobs from "./applyToJobs";
 
 
-const gotTo = async (url: string) => {
+const gotToAndDo = async (url: string) => {
   const email = process.env.EMAIL;
   const password = process.env.PASSWORD;
 
@@ -21,6 +21,6 @@ const gotTo = async (url: string) => {
 }
 
 
-(async () => {
-  await gotTo("https://www.rabota.md/ro/");
-})();
+(async (url:string) => {
+  await gotToAndDo(url);
+})("https://www.rabota.md/ro/");
