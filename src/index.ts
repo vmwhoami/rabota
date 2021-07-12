@@ -1,9 +1,10 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
+require('dotenv').config({path: '.env'})
 import { startBrowser } from './startCloseBrowser';
-import * as dotenv from 'dotenv';
 import login from './login';
 import applyToJobs from "./applyToJobs";
 
-dotenv.config();
+
 const gotTo = async (url: string) => {
   const email = process.env.EMAIL;
   const password = process.env.PASSWORD;

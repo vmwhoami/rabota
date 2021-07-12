@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint @typescript-eslint/no-var-requires: "off" */
+require('dotenv').config({ path: '.env' });
 const startCloseBrowser_1 = require("./startCloseBrowser");
-const dotenv = require("dotenv");
 const login_1 = require("./login");
 const applyToJobs_1 = require("./applyToJobs");
-dotenv.config();
 const gotTo = async (url) => {
     const email = process.env.EMAIL;
     const password = process.env.PASSWORD;
