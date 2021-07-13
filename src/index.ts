@@ -3,9 +3,9 @@ require('dotenv').config({path: '.env'})
 import { startBrowser } from './startCloseBrowser';
 import login from './login';
 import applyToJobs from "./applyToJobs";
+import risetoTop from './rizeTop';
 
-
-const gotToAndDo = async (url: string) => {
+const gotToAndDo = async (url: string,search:string,rizeTop:boolean =false) => {
   const email = process.env.EMAIL;
   const password = process.env.PASSWORD;
 
@@ -13,14 +13,18 @@ const gotToAndDo = async (url: string) => {
   page.setViewport({ width: 1000, height: 800 });
   await page.goto(url);
   await login(page, email, password);
-  await page.goto(url + 'jobs-moldova-junior-developer');
+  if(rizeTop)
+  await page.goto(url + search);
   await page.setViewport({ width: 500, height: 1000 });
   await page.addStyleTag({ content: "* {scroll-behavior: auto !important;}" });
   await applyToJobs(page)
 
 }
 
+const url = "https://www.rabota.md/ro/";
+const searchCat = 'jobs-moldova-junior-developer';
+const rizeTop =true;
 
-(async (url:string) => {
-  await gotToAndDo(url);
-})("https://www.rabota.md/ro/");
+(async () => {
+  await gotToAndDo(url,searchCat);
+})();
