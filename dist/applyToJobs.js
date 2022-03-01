@@ -5,7 +5,7 @@ const loopFunc = async (elements_arr, page) => {
     while (elements_arr.length > 0) {
         const selectedElement = elements_arr.shift();
         await selectedElement.click();
-        await sendCV_1.default(page);
+        await (0, sendCV_1.default)(page);
     }
 };
 const applyToJobs = async (page) => {
