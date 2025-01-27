@@ -10,7 +10,7 @@ const gotToAndDo = async (url: string, search: string, rizeTop: boolean) => {
   const password = process.env.PASSWORD;
   const { page } = await startBrowser();
   page.setViewport({ width: 1000, height: 800 });
-  await page.goto(url);
+  await page.goto(url, { timeout: 60000 });
   await login(page, email, password);
   if(rizeTop) { 
     await risetoTop(page);
@@ -21,7 +21,7 @@ const gotToAndDo = async (url: string, search: string, rizeTop: boolean) => {
   await applyToJobs(page);
 }
 
-const url = "https://www.rabota.md/ro/";
+const url = "https://www.rabota.md/ro/login";
 const searchCat = 'jobs-moldova-developer';
 const rizeTop = true;
 
