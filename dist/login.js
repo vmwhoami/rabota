@@ -9,6 +9,8 @@ const login = async (page, email = "hello", password = "world") => {
         await page.type("#locPassword", password);
         await page.waitForSelector('#locRemember');
         await page.click('#locRemember');
+        await page.waitForSelector('#button_l');
+        await page.click('#button_l');
     }
     catch (error) {
         console.log(error);
