@@ -12,19 +12,23 @@ const gotToAndDo = async (url: string, search: string, rizeTop: boolean) => {
   page.setViewport({ width: 1000, height: 800 });
   await page.goto(url, { timeout: 60000 });
   await login(page, email, password);
+
+
   if(rizeTop) { 
     await risetoTop(page);
   }
-  await page.goto(url + search);
+  
+  await page.goto(theUrlWithSearch + search);
   await page.setViewport({ width: 500, height: 1000 });
   await page.addStyleTag({ content: "* {scroll-behavior: auto !important;}" });
   await applyToJobs(page);
 }
 
 const url = "https://www.rabota.md/ro/login";
-const searchCat = 'jobs-moldova-developer';
-const rizeTop = true;
+const theUrlWithSearch = "https://www.rabota.md/ro/";
+const search = 'jobs-moldova-developer';
+const rizeTop = false;
 
 (async () => {
-  await gotToAndDo(url, searchCat, rizeTop);
+  await gotToAndDo(url, search, rizeTop);
 })();

@@ -10,7 +10,7 @@ const loopFunc = async (elements_arr: any, page: any) => {
 
 const applyToJobs = async (page: any) => {
   try {
-    const elementsHendles = await page.evaluateHandle(() => document.querySelectorAll('.cat_red_btn')!);
+    const elementsHendles = await page.evaluateHandle(() => document.querySelectorAll('.sendCv-btn')!);
     const elements = await elementsHendles.getProperties();
     const children: any = [];
     for (const property of elements.values()) {

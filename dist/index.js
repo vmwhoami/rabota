@@ -16,14 +16,15 @@ const gotToAndDo = async (url, search, rizeTop) => {
     if (rizeTop) {
         await (0, rizeTop_1.default)(page);
     }
-    await page.goto(url + search);
+    await page.goto(theUrlWithSearch + search);
     await page.setViewport({ width: 500, height: 1000 });
     await page.addStyleTag({ content: "* {scroll-behavior: auto !important;}" });
     await (0, applyToJobs_1.default)(page);
 };
 const url = "https://www.rabota.md/ro/login";
-const searchCat = 'jobs-moldova-developer';
-const rizeTop = true;
+const theUrlWithSearch = "https://www.rabota.md/ro/";
+const search = 'jobs-moldova-developer';
+const rizeTop = false;
 (async () => {
-    await gotToAndDo(url, searchCat, rizeTop);
+    await gotToAndDo(url, search, rizeTop);
 })();

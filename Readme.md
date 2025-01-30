@@ -5,13 +5,31 @@
 - Chart example
 - Animation example
 
-### Screenshot
 
-![screenshot](./)
-
-## Time estimate
-
+## For Windows Install vcxsrv
+1. Select "Multiple windows"
+2. Set "Display number" to **-1** (automatic)
+3. Check "Start no client"
+4. Click "Next"
+--> **NOW YOU'LL SEE THE ACCESS CONTROL OPTION** <--
+5. Check "Disable access control" (most important!)
+6. Click "Next"
+7. Save configuration if desired
+8. Click "Finish"
 A week with working 4 hours a day sometimes less some times more.
+
+
+## WSL 2 Configuration
+
+Run these commands in your WSL terminal:
+
+```
+# Set display to use Windows X Server
+export DISPLAY=$(grep nameserver /etc/resolv.conf | awk '{print $2}'):0
+
+# Allow Docker to access X Server
+xhost +local:docker
+```
 
 ## Getting Started
 
@@ -62,6 +80,9 @@ npm start
 
 In the project directory, you can run:
 
+```
+npm run build
+```
 ### `npm start`
 
 Runs the app
